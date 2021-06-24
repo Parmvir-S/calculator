@@ -40,7 +40,7 @@ function operate(operator, a, b) {
             let remainder = modulo(a, b);
             return remainder;
         default:
-            return "Parmvir Shergill";
+            return "Parm";
     }
 }
 
