@@ -106,7 +106,7 @@ equalButton.addEventListener("click", function() {
     let x = operate(operatorValue, clickedNums[0], clickedNums[1]);
     clickedNums = [x];
     console.log(x)
-    display(x)
+    display(x);
 });
 
 
