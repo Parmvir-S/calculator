@@ -40,7 +40,7 @@ function operate(operator, a, b) {
             let remainder = modulo(a, b);
             return remainder;
         default:
-            return "Toronto Raptors!";
+            return "Eat The Truth!";
     }
 }
 
@@ -67,7 +67,6 @@ const numberButtons = document.querySelectorAll(".numberButton");
 numberButtons.forEach(num => {
     num.addEventListener("click", (e) => {
         let numString = e.target.textContent;
-        console.log(numString);
         priorToStorageNum += numString;
         clearDisplay()
         display(priorToStorageNum)
@@ -78,7 +77,6 @@ numberButtons.forEach(num => {
 const operatorsButtons = document.querySelectorAll(".operator");
 operatorsButtons.forEach(op => {
     op.addEventListener("click", e => {
-      console.log(e.target.textContent);
       operatorValue = e.target.textContent;
       if (clickedNums.length == 0) {
         clickedNums.push(Number(priorToStorageNum));
@@ -105,7 +103,6 @@ equalButton.addEventListener("click", function() {
     priorToStorageNum = "";
     let x = operate(operatorValue, clickedNums[0], clickedNums[1]);
     clickedNums = [x];
-    console.log(x)
     display(x);
 });
 
