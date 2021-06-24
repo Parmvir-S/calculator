@@ -55,7 +55,7 @@ let FakeDisplayValue = document.createElement("p");
 //Fake Display Screen Code
 function display(bam) {
     FakeDisplayValue.textContent = bam;
-    FakeDisplayValue.style.cssText = "margin: 8% 5% 5% 5%; overflow: hidden; font-family: monospace; font-size: 1.5em";
+    FakeDisplayValue.style.cssText = "margin: 7% 5% 5% 5%; overflow: hidden; font-family: monospace; font-size: 2em";
     displayScreen.appendChild(FakeDisplayValue);
 }
 
@@ -81,7 +81,7 @@ operatorsButtons.forEach(op => {
       console.log(e.target.textContent);
       operatorValue = e.target.textContent;
       if (clickedNums.length == 0) {
-        clickedNums.push(parseInt(priorToStorageNum));
+        clickedNums.push(Number(priorToStorageNum));
       }
       priorToStorageNum = "";
     })
@@ -101,7 +101,7 @@ function wipeAllData() {
 
 const equalButton = document.querySelector(".equal");
 equalButton.addEventListener("click", function() {
-    clickedNums.push(parseInt(priorToStorageNum));
+    clickedNums.push(Number(priorToStorageNum));
     priorToStorageNum = "";
     let x = operate(operatorValue, clickedNums[0], clickedNums[1]);
     clickedNums = [x];
@@ -110,4 +110,12 @@ equalButton.addEventListener("click", function() {
 });
 
 
-// const decimalButton = document.querySelector(".decimal");
+const decimalButton = document.querySelector(".decimal");
+decimalButton.addEventListener("click", () => {
+    if (priorToStorageNum.includes(".")) {
+        return;
+    } else {
+        priorToStorageNum += ".";
+        display(priorToStorageNum)
+    }
+})
