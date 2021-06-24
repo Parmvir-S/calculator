@@ -3,7 +3,11 @@ button {
     font-family: monospace;
     font-size: 1.5em;
     box-shadow: 5px 10px #888888;
+    border-style: none;
+}
 
+button:hover {
+    transform: scale(1.05);
 }
 
 h1 {
@@ -224,6 +228,7 @@ h1 {
     background: #676956;
     border-radius: 30px;
 }
+
 
 
 @media (min-width: 320px) and (max-width: 480px) {
