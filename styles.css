@@ -158,7 +158,6 @@ h1 {
 .equal {
     grid-column: 3/5;
     grid-row: 6/7;
-
     width: 80%;
     height: 55px;
     background: #676956;

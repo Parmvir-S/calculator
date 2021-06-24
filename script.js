@@ -73,7 +73,6 @@ numberButtons.forEach(num => {
     })
   });
 
-
 const operatorsButtons = document.querySelectorAll(".operator");
 operatorsButtons.forEach(op => {
     op.addEventListener("click", e => {
