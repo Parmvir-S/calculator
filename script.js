@@ -44,26 +44,31 @@ function operate(operator, a, b) {
     }
 }
 
+const displayScreen = document.querySelector(".screen-display");
+let FakeDisplayValue = document.createElement("p");
+const numberButtons = document.querySelectorAll(".numberButton");
+const operatorsButtons = document.querySelectorAll(".operator");
+const clearButton = document.querySelector(".clear");
+const equalButton = document.querySelector(".equal");
+const decimalButton = document.querySelector(".decimal");
+
+let clickedNums = [];
+let operatorValue = "";
+let priorToStorageNum = "";
+
+//Clears the Display
 function clearDisplay() {
     FakeDisplayValue.textContent = "";
 }
 
-//Display Screen
-const displayScreen = document.querySelector(".screen-display");
-let FakeDisplayValue = document.createElement("p");
-
-//Fake Display Screen Code
+//Displays Values In The Output Box
 function display(bam) {
     FakeDisplayValue.textContent = bam;
     FakeDisplayValue.style.cssText = "margin: 7% 5% 5% 5%; overflow: hidden; font-family: monospace; font-size: 2em";
     displayScreen.appendChild(FakeDisplayValue);
 }
 
-let clickedNums = [];
-let operatorValue = "";
-let priorToStorageNum = "";
 
-const numberButtons = document.querySelectorAll(".numberButton");
 numberButtons.forEach(num => {
     num.addEventListener("click", (e) => {
         let numString = e.target.textContent;
@@ -73,7 +78,6 @@ numberButtons.forEach(num => {
     })
   });
 
-const operatorsButtons = document.querySelectorAll(".operator");
 operatorsButtons.forEach(op => {
     op.addEventListener("click", e => {
       operatorValue = e.target.textContent;
@@ -84,7 +88,6 @@ operatorsButtons.forEach(op => {
     })
   })
 
-const clearButton = document.querySelector(".clear");
 clearButton.addEventListener("click", function() {
     wipeAllData()
 })
@@ -96,7 +99,6 @@ function wipeAllData() {
     priorToStorageNum = "";
   }
 
-const equalButton = document.querySelector(".equal");
 equalButton.addEventListener("click", function() {
     clickedNums.push(Number(priorToStorageNum));
     priorToStorageNum = "";
@@ -106,7 +108,6 @@ equalButton.addEventListener("click", function() {
 });
 
 
-const decimalButton = document.querySelector(".decimal");
 decimalButton.addEventListener("click", () => {
     if (priorToStorageNum.includes(".")) {
         return;
